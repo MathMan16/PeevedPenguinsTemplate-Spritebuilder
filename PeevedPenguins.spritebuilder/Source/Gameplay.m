@@ -14,6 +14,7 @@
     CCNode *_levelNode;
     CCNode *_contentNode;
     CCNode *_pullbackNode;
+    
     CCNode *_mouseJointNode;
     CCPhysicsJoint *_mouseJoint;
 }
@@ -28,6 +29,7 @@
     [_levelNode addChild:level];
     // nothing shall collide with our invisible nodes
     _pullbackNode.physicsBody.collisionMask = @[];
+    
     _mouseJointNode.physicsBody.collisionMask = @[];
 }
 
