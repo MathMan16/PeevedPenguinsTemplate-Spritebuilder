@@ -35,7 +35,7 @@
 
 // called on every touch in this scene
 
-/*
+
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:_contentNode];
@@ -51,9 +51,9 @@
     }
 }
 
-*/
 
-/*
+
+
 
 - (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
@@ -62,7 +62,7 @@
     _mouseJointNode.position = touchLocation;
 }
 
-*/
+
 
 - (void)releaseCatapult {
     if (_mouseJoint != nil)
