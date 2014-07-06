@@ -34,6 +34,8 @@
 }
 
 // called on every touch in this scene
+
+/*
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:_contentNode];
@@ -48,6 +50,8 @@
         _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
     }
 }
+
+*/
 
 /*
 
