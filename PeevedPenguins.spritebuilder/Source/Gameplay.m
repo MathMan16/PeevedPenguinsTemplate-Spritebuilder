@@ -45,9 +45,7 @@
     
     // if energy is large enough, remove the seal
     if (energy > 5000.f) {
-        [[_physicsNode space] addPostStepBlock:^{
-            [self sealRemoved:nodeA];
-        } key:nodeA];
+        [[_physicsNode space] addPostStepBlock:^{[self sealRemoved:nodeA];}key:nodeA];
     }
 }
 
