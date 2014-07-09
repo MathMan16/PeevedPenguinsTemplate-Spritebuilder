@@ -22,6 +22,8 @@ static const float MIN_SPEED = 5.f;
     
     CCNode *_currentPenguin;
     CCPhysicsJoint *_penguinCatapultJoint;
+    
+    CCAction *_followPenguin;
 }
 
 // is called when CCB file has completed loading
@@ -196,5 +198,13 @@ static const float MIN_SPEED = 5.f;
         [self nextAttempt];
         return;
     }
+}
+
+- (void)nextAttempt {
+    _currentPenguin = nil;
+    [_contentNode stopAction:_followPenguin];
+    
+    CCActionMoveTo *actionMoveTo = [CCActionMoveTo actionWithDuration:1.f position:ccp(0, 0)];
+    [_contentNode runAction:actionMoveTo];
 }
 @end
