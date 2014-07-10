@@ -131,7 +131,6 @@ static const float MIN_SPEED = 3.f;
     // follow the flying penguin
     _followPenguin = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
     [_contentNode runAction:_followPenguin];
-    _currentState = @"Following";
 }
 
 -(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
