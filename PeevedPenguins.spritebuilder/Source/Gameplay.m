@@ -137,12 +137,14 @@ static const float MIN_SPEED = 3.f;
 -(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     // when touches end, meaning the user releases their finger, release the catapult
+    NSLog(@"Release Catapult");
     [self releaseCatapult];
 }
 
 -(void) touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
     // when touches are cancelled, meaning the user drags their finger off the screen or onto something else, release the catapult
+    NSLog(@"Release Catapult");
     [self releaseCatapult];
 }
 
@@ -174,10 +176,9 @@ static const float MIN_SPEED = 3.f;
 
 - (void)update:(CCTime)delta
 {
-    NSLog(_currentState);
     // if speed is below minimum speed, assume this attempt is over
     if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
-        NSLog(@"Low Speed");
+        //NSLog(@"Low Speed");
         [self nextAttempt];
         return;
     }
@@ -185,7 +186,7 @@ static const float MIN_SPEED = 3.f;
     int xMin = _currentPenguin.boundingBox.origin.x;
     
     if (xMin < self.boundingBox.origin.x) {
-        NSLog(@"Left Edge");
+        //NSLog(@"Left Edge");
         [self nextAttempt];
         return;
     }
@@ -193,7 +194,7 @@ static const float MIN_SPEED = 3.f;
     int xMax = xMin + _currentPenguin.boundingBox.size.width;
     
     if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
-        NSLog(@"Right Edge");
+        //NSLog(@"Right Edge");
         [self nextAttempt];
         return;
     }
