@@ -202,5 +202,8 @@ static const float MIN_SPEED = 10.f;
     if (_currentPenguin == nil){
         NSLog(@"No Penguin");
     }
+    else{
+        NSLog(@"Penguin");
+    }
 }
 @end
