@@ -21,10 +21,10 @@ static const float MIN_SPEED = 3.f;
     CCNode *_mouseJointNode;
     CCPhysicsJoint *_mouseJoint;
     
-    CCNode *_currentPenguin;
+    Penguin *_currentPenguin;
     CCPhysicsJoint *_penguinCatapultJoint;
     
-    Penguin *_followPenguin;
+    CCAction *_followPenguin;
     
 //    NSString *_currentState;
 }
