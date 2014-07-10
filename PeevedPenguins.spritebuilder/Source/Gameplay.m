@@ -24,6 +24,8 @@ static const float MIN_SPEED = 3.f;
     CCPhysicsJoint *_penguinCatapultJoint;
     
     CCAction *_followPenguin;
+    
+    NSString *_currentState;
 }
 
 // is called when CCB file has completed loading
@@ -129,6 +131,7 @@ static const float MIN_SPEED = 3.f;
     // follow the flying penguin
     CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
     [_contentNode runAction:follow];
+    _currentState = @"Following";
 }
 
 -(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -171,6 +174,7 @@ static const float MIN_SPEED = 3.f;
 
 - (void)update:(CCTime)delta
 {
+    NSLog(_currentState);
     // if speed is below minimum speed, assume this attempt is over
     if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
         [self nextAttempt];
@@ -195,6 +199,7 @@ static const float MIN_SPEED = 3.f;
 - (void)nextAttempt {
     _currentPenguin = nil;
     [_contentNode stopAction:_followPenguin];
+    _currentState = @"Not Following";
     
     CCActionMoveTo *actionMoveTo = [CCActionMoveTo actionWithDuration:1.f position:ccp(0, 0)];
     [_contentNode runAction:actionMoveTo];
