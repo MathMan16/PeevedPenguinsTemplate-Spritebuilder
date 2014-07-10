@@ -177,10 +177,11 @@ static const float MIN_SPEED = 3.f;
 
 - (void)update:(CCTime)delta
 {
-    /*// if speed is below minimum speed, assume this attempt is over
+    // if speed is below minimum speed, assume this attempt is over
     if(_currentPenguin == nil){
+        CCLOG(@"%f",ccpLength(_currentPenguin.physicsBody.velocity));
         return;
-    }*/
+    }
     if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
         //NSLog(@"Low Speed");
         [self nextAttempt];
