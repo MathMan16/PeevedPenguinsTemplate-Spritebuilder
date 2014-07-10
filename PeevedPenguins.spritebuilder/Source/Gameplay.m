@@ -200,6 +200,7 @@ static const float MIN_SPEED = 3.f;
 }
 
 - (void)nextAttempt {
+    NSLog(@"nextAttempt");
     _currentPenguin = nil;
     [_contentNode stopAction:_followPenguin];
     
