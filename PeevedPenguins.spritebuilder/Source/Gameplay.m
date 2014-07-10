@@ -177,6 +177,7 @@ static const float MIN_SPEED = 3.f;
     NSLog(_currentState);
     // if speed is below minimum speed, assume this attempt is over
     if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
+        NSLog(@"Low Speed");
         [self nextAttempt];
         return;
     }
@@ -184,6 +185,7 @@ static const float MIN_SPEED = 3.f;
     int xMin = _currentPenguin.boundingBox.origin.x;
     
     if (xMin < self.boundingBox.origin.x) {
+        NSLog(@"Left Edge");
         [self nextAttempt];
         return;
     }
@@ -191,6 +193,7 @@ static const float MIN_SPEED = 3.f;
     int xMax = xMin + _currentPenguin.boundingBox.size.width;
     
     if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
+        NSLog(@"Right Edge");
         [self nextAttempt];
         return;
     }
