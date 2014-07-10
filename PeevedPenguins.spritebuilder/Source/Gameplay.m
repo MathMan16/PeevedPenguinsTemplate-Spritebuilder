@@ -179,31 +179,31 @@ static const float MIN_SPEED = 3.f;
 - (void)update:(CCTime)delta
 {
     if(_currentPenguin.launched){
-    // if speed is below minimum speed, assume this attempt is over
-    if(_currentPenguin == nil){
-        return;
-    }
-    if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
-        //NSLog(@"Low Speed");
-        [self nextAttempt];
-        return;
-    }
+        // if speed is below minimum speed, assume this attempt is over
+/*        if(_currentPenguin == nil){
+            return;
+        }*/
+        if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
+            //NSLog(@"Low Speed");
+            [self nextAttempt];
+            return;
+        }
+        
+        int xMin = _currentPenguin.boundingBox.origin.x;
     
-    int xMin = _currentPenguin.boundingBox.origin.x;
+        if (xMin < self.boundingBox.origin.x) {
+            //NSLog(@"Left Edge");
+            [self nextAttempt];
+            return;
+        }
     
-    if (xMin < self.boundingBox.origin.x) {
-        //NSLog(@"Left Edge");
-        [self nextAttempt];
-        return;
-    }
+        int xMax = xMin + _currentPenguin.boundingBox.size.width;
     
-    int xMax = xMin + _currentPenguin.boundingBox.size.width;
-    
-    if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
-        //NSLog(@"Right Edge");
-        [self nextAttempt];
-        return;
-    }
+        if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
+            //NSLog(@"Right Edge");
+            [self nextAttempt];
+            return;
+        }
     }
 }
 
