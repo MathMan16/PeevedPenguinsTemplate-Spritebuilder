@@ -8,7 +8,7 @@
 
 #import "Gameplay.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
-static const float MIN_SPEED = 10.f;
+static const float MIN_SPEED = 3.f;
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
