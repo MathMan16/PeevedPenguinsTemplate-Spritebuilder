@@ -178,6 +178,7 @@ static const float MIN_SPEED = 3.f;
 
 - (void)update:(CCTime)delta
 {
+    if(_currentPenguin.launched){
     // if speed is below minimum speed, assume this attempt is over
     if(_currentPenguin == nil){
         return;
@@ -202,6 +203,7 @@ static const float MIN_SPEED = 3.f;
         //NSLog(@"Right Edge");
         [self nextAttempt];
         return;
+    }
     }
 }
 
