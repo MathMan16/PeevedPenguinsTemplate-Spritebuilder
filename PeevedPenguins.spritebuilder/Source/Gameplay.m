@@ -198,5 +198,6 @@ static const float MIN_SPEED = 10.f;
     
     CCActionMoveTo *actionMoveTo = [CCActionMoveTo actionWithDuration:1.f position:ccp(0, 0)];
     [_contentNode runAction:actionMoveTo];
+    NSLog(@"Stopped Following");
 }
 @end
